@@ -2,8 +2,8 @@ require 'securerandom'
 
 
 class Item
-    attr_reader @published_date
-    attr_accessor @archived
+    attr_reader :published_date, :id
+    attr_accessor :archived
 
     def initialize(published_date, archived = false)
         @id = SecureRandom.hex

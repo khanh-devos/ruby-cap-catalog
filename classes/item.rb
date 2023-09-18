@@ -1,6 +1,5 @@
 require 'securerandom'
 
-
 class Item
   attr_reader :published_date, :id, :author
   attr_accessor :archived

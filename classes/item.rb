@@ -2,32 +2,39 @@ require 'securerandom'
 
 
 class Item
-    attr_reader :published_date, :id
-    attr_accessor :archived
+  attr_reader :published_date, :id, :author
+  attr_accessor :archived
 
-    def initialize(published_date, archived = false)
-        @id = SecureRandom.hex
-        @published_date = published_date
-        @archived = archived
-    end
+  def initialize(published_date)
+    @id = SecureRandom.hex
+    @published_date = published_date
+    @archived = false
+    @author = nil
+  end
 
-    private
+  private
 
-    def can_be_archived?
-        today = Time.now
-        year, month, day = [today.year, today.month, today.day]
-        point_of_10_years_algo = Time.new(year - 10, month, day)
+  def can_be_archived?
+    today = Time.now
+    year = today.year
+    month = today.month
+    day = today.day
+    point_of_10_years_algo = Time.new(year - 10, month, day)
 
-        arr = @published_date.split(/-/, 3)
-        pdate = Time.new(arr[0], arr[1], arr[2])        
+    arr = @published_date.split('-', 3)
+    pdate = Time.new(arr[0], arr[1], arr[2])
 
-        (pdate < point_of_10_years_algo)
-    end
+    (pdate < point_of_10_years_algo)
+  end
 
-    public 
+  public
 
-    def move_to_archive
-        if can_be_archived? then @archived = true end 
-    end
+  def move_to_archive
+    @archived = true if can_be_archived?
+  end
 
+  def author=(author)
+    @author = author
+    author.items.push(self)
+  end
 end

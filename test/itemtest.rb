@@ -1,13 +1,12 @@
 require 'rspec'
 require_relative '../classes/item'
 
-
 RSpec.describe Item do
   context 'test class Item: ' do
     before :each do
       @item = Item.new('check', 'today')
-    end  
-    
+    end
+
     it 'check all attrs' do
       expect(@item.type).to eql('check')
       expect(@item.published_date).to eql('today')
@@ -19,13 +18,11 @@ RSpec.describe Item do
     end
 
     it 'check method add_label' do
-      @item.add_label MockLabel.new 
+      @item.add_label MockLabel.new
       expect(@item.label).to eql('mocklabel')
     end
-    
   end
 end
-
 
 class MockLabel
   attr_reader :title

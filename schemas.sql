@@ -22,9 +22,10 @@ CREATE TABLE game (
 
 -- =====================
 CREATE TABLE label (
-    id SERIAL PRIMARY KEY,
+    id SERIAL,
     title VARCHAR(250),
-    color VARCHAR(50)
+    color VARCHAR(50),
+    PRIMARY KEY (id, title)
 )
 
 CREATE TABLE book (

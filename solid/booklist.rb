@@ -32,7 +32,7 @@ class BookList
   end
 
   def show
-    @list.each { |b| puts "BOOK: title: \"#{b.title}\"; Author: \"#{b.author}\"" }
+    @list.each { |b| puts "BOOK: title: \"#{b.title}\"; Author: \"#{b.author}\" Label: \"#{b.label}\"" }
   end
 
 

@@ -15,7 +15,7 @@ class LabelList
     
     def show
         @list.each_with_index do |item, i|
-            puts "#{i+1} #{item.title}  "
+            puts "#{i+1} : \"#{item.title}\"  "
         end
     end
 
@@ -46,9 +46,12 @@ class LabelList
 
     def select_create_label_for(new_item)
         show
-        print ('Choose the label by index (or enter to create a new Label): ')
-        index = gets.chomp.to_i
+        print ('Select label by index (0: create a new label or enter to skip): ')
+        input = gets.chomp.strip
+
+        return if input.length.zero? # skipping
         
+        index = input.to_i
         if !index.zero?
             # old label in the list
             label = @list[index - 1]

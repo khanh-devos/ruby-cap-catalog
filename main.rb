@@ -1,3 +1,4 @@
+require 'json'
 require_relative './classes/author'
 require_relative './classes/book'
 require_relative './classes/game'
@@ -13,6 +14,10 @@ require_relative './solid/gamelist'
 require_relative './solid/genrelist'
 require_relative './solid/labellist'
 require_relative './solid/validation'
+
+require_relative './serializers/serializeitem'
+require_relative './serializers/serializearray'
+
 
 
 
@@ -41,6 +46,9 @@ def main
     booklist = BookList.new
     labellist = LabelList.new
 
+    booklist.read_data
+    labellist.read_data
+
     100.times do
         opt = start
     
@@ -67,7 +75,10 @@ def main
             puts "choose #{opt}"
         when 9
             puts "choose #{opt}"
-        else 
+        else
+            booklist.write_data
+            labellist.write_data
+             
             puts 'save to json file'
             puts "Thank you for using"
             break

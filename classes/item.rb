@@ -1,7 +1,9 @@
 require 'securerandom'
+require_relative '../serializers/serializeitem'
 
 
 class Item
+    include SerializationItem
     attr_reader :id, :type, :archived
     attr_accessor :genre, :author, :label, :published_date
 

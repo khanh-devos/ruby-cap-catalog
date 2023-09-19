@@ -2,10 +2,11 @@ require 'json'
 require_relative '../classes/book'
 require_relative '../classes/label'
 require_relative './validation'
+require_relative '../serializers/serializearray'
 
 
 class BookList
-  # include SerializationArray
+  include SerializationArray
 
   attr_accessor :list
 
@@ -34,4 +35,17 @@ class BookList
     @list.each { |b| puts "BOOK: title: \"#{b.title}\"; Author: \"#{b.author}\"" }
   end
 
+
+  # SERIALIZATION
+  def take_array
+    @list
+  end
+
+  def create_item
+    Book.new('', '')
+  end
+
+  def add_list(arr)
+    @list = arr
+  end
 end

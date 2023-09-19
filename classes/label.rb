@@ -1,6 +1,7 @@
 
 
 class Label
+    include SerializationItem
     attr_reader :id, :title
     attr_accessor :color, :items
 

@@ -1,3 +1,5 @@
+require 'date'
+
 class InputValidation
     private
   
@@ -41,7 +43,7 @@ class InputValidation
         
         if arr.length == 3 && arr[0]>100 && arr[1].positive? && arr[1]<13 && arr[2].positive? && arr[2]<32
 
-          data = Time.new(arr[0], arr[1], arr[2])
+          data = Date.new(arr[0], arr[1], arr[2])
         end
       end
       data

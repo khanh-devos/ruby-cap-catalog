@@ -1,7 +1,11 @@
 require_relative './validation'
 require_relative '../classes/label'
+require_relative '../serializers/serializearray'
+
+
 
 class LabelList
+    include SerializationArray
     attr_accessor :list
 
     def initialize
@@ -57,4 +61,17 @@ class LabelList
         puts "Item added new label successfully"
     end
 
+
+    # SERIALIZATION
+    def take_array
+        @list
+    end
+
+    def create_item
+        Label.new('fake')
+    end
+
+    def add_list(arr)
+        @list = arr
+    end
 end

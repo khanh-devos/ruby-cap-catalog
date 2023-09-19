@@ -10,6 +10,7 @@ CREATE TABLE game (
     item_type VARCHAR(250),
     multiplayer BOOLEAN,
     last_played_at DATE,
+
     published_date DATE,
     archived BOOLEAN
 
@@ -29,6 +30,9 @@ CREATE TABLE label (
 CREATE TABLE book (
     id SERIAL PRIMARY KEY,
     item_type VARCHAR(250),
+    title VARCHAR(250),
+    cover_state BOOLEAN,
+
     published_date DATE,
     archived BOOLEAN,
     
@@ -48,6 +52,9 @@ CREATE TABLE music_album (
     id SERIAL PRIMARY KEY,
     item_type VARCHAR(250),
     on_spotify BOOLEAN,
+    
+    published_date DATE,
+    archived BOOLEAN,
 
     genre_id INT REFERENCES genre(id),
     author_id INT REFERENCES author(id),

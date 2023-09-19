@@ -41,7 +41,7 @@ class InputValidation
       str = gets.chomp.strip
       arr = str.split('-', 3).map(&:to_i)
 
-      if arr.all?(&:positive?) && arr[0] > 100 && arr[1] < 13 && arr[2] < 32
+      if arr.length == 3 && arr.all?(&:positive?) && arr[1] < 13 && arr[2] < 32
         data = Date.new(arr[0], arr[1], arr[2])
         break
       end

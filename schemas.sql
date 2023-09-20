@@ -52,6 +52,7 @@ CREATE TABLE genre (
 CREATE TABLE music_album (
     id SERIAL PRIMARY KEY,
     item_type VARCHAR(250),
+    title VARCHAR(250),
     on_spotify BOOLEAN,
     
     published_date DATE,

@@ -41,11 +41,18 @@ end
 def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
   booklist = BookList.new
   labellist = LabelList.new
-  gamelist = GameList.new
-  authorlist = AuthorList.new
+
+  albumlist = AlbumList.new
+  genrelist = GenreList.new
 
   booklist.read_data
   labellist.read_data
+  albumlist.read_data
+  genrelist.read_data
+
+  gamelist = GameList.new
+  authorlist = AuthorList.new
+
   gamelist.read_data
   authorlist.read_data
 
@@ -60,11 +67,12 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     when 3
       authorlist.show
     when 4
-      gamelist.show
-    # when 5
-    #   puts "choose #{opt}"
-    # when 6
-    #   puts "choose #{opt}"
+
+      puts "choose #{opt}"
+    when 5
+      genrelist.show
+    when 6
+      albumlist.show
     when 7
       new_book = booklist.add_book
       labellist.select_create_label_for(new_book)
@@ -75,14 +83,19 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
       new_game = gamelist.add_game
       authorlist.select_create_author_for(new_game)
     when 9
-      puts "choose #{opt}"
+      new_album = albumlist.add_album
+      genrelist.select_create_genre_for(new_album)
     else
       booklist.write_data
       labellist.write_data
+
+      albumlist.write_data
+      genrelist.write_data
+
       gamelist.write_data
       authorlist.write_data
 
-      puts 'save to json file'
+
       puts 'Thank you for using'
       break
     end

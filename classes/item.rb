@@ -41,6 +41,7 @@ class Item
     arr = @published_date.split('-', 3)
     pdate = Time.new(arr[0], arr[1], arr[2])
 
+    # older than 10 years => true 
     (pdate < point_of_10_years_algo)
   end
 
@@ -53,6 +54,10 @@ class Item
   def add_label(label)
     label.add_item(self)
   end
+
+
+  def add_genre(genre)
+    genre.add_item(self)
 
   def add_author(author)
     @author = author

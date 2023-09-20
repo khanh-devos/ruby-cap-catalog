@@ -15,11 +15,12 @@ class GameList
 
   def game_attr
     item_type = 'GAME'
+    title = @input.input_string('Game Title:')
     published_date = @input.input_date('Published date (yyyy-mm-dd):')
     multiplayer = @input.input_yes_no('Is it multiplayer? (y/n):')
     last_played_at = @input.input_date('Last played date (yyyy-mm-dd):')
 
-    [item_type, published_date, multiplayer, last_played_at]
+    [item_type, title, published_date, multiplayer, last_played_at]
   end
 
   def add_game
@@ -33,7 +34,7 @@ class GameList
 
   def show
     @list.each do |game|
-      puts "GAME: Type: #{game.type}, Published Date: #{game.published_date},
+      puts "GAME: Title: #{game.title}, Type: #{game.type}, Published Date: #{game.published_date},
       Multiplayer: #{game.multiplayer}, Last Played At: #{game.last_played_at}, Author: #{game.author},
       Label: #{game.label}"
     end

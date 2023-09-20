@@ -41,9 +41,13 @@ end
 def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
   booklist = BookList.new
   labellist = LabelList.new
+  albumlist = AlbumList.new
+  genrelist = GenreList.new
 
   booklist.read_data
   labellist.read_data
+  albumlist.read_data
+  genrelist.read_data
 
   100.times do
     opt = start
@@ -58,9 +62,9 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     when 4
       puts "choose #{opt}"
     when 5
-      puts "choose #{opt}"
+      genrelist.show
     when 6
-      puts "choose #{opt}"
+      albumlist.show
     when 7
       new_book = booklist.add_book
       labellist.select_create_label_for(new_book)
@@ -70,12 +74,14 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     when 8
       puts "choose #{opt}"
     when 9
-      puts "choose #{opt}"
+      new_album = albumlist.add_album
+      genrelist.select_create_genre_for(new_album)
     else
       booklist.write_data
       labellist.write_data
+      albumlist.write_data
+      genrelist.write_data
 
-      puts 'save to json file'
       puts 'Thank you for using'
       break
     end

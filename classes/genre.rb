@@ -5,7 +5,7 @@ class Genre
 
   def initialize(name)
     @id = rand 0..100
-    @name = name
+    @name = name.upcase
     @items = []
   end
 
@@ -13,6 +13,6 @@ class Genre
     return if @items.include?(item.id)
 
     @items << item.id
-    item.genre = self
+    item.genre = @name
   end
 end

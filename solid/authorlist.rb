@@ -17,13 +17,37 @@ class AuthorList
     [first_name, last_name]
   end
 
-  def add_author
-    first_name, last_name = author_attr
-    author = Author.new(first_name, last_name)
+  def select_create_author_for(new_item)
+    show_with_index
+    print('Select author by index (0: create a new author or enter to skip): ')
+    input = gets.chomp.strip
 
-    puts 'Author created successfully'
-    @list << author
-    author
+    return if input.empty?
+
+    index = input.to_i
+    if index.zero?
+      first_name, last_name = author_attr
+      author = Author.new(first_name, last_name)
+      @list << author
+      new_item.add_author(author)
+    elsif index.between?(1, @list.length)
+      author = @list[index - 1]
+      new_item.add_author(author)
+      puts "Selected existing author (#{index}): #{author.first_name} #{author.last_name}"
+    else
+      puts 'Invalid index. Author not added.'
+    end
+
+    puts 'Item author added successfully'
+  end
+
+  private
+
+  def show_with_index
+    @list.each_with_index do |author, index|
+      puts "AUTHOR: #{index + 1} - First Name: #{author.first_name}, " \
+           "Last Name: #{author.last_name}, Books/Games: #{author.items.length}"
+    end
   end
 
   def show
@@ -31,26 +55,6 @@ class AuthorList
       puts "AUTHOR: First Name: #{author.first_name},
       Last Name: #{author.last_name}, Books/Games: #{author.items.length}"
     end
-  end
-
-  def select_create_author_for(_item_list)
-    author = select_author
-    return author if author
-
-    author = add_author if @input.input_yes_no('Do you want to create a new author? (y/n):')
-
-    author || Author.new('', '')
-  end
-
-  private
-
-  def select_author
-    puts 'Select by index (0: create a new or enter to skip)'
-    @list.each_with_index { |author, index| puts "#{index + 1}: #{author.first_name} #{author.last_name}" }
-    input = gets.chomp.strip.to_i
-    return @list[input - 1] if input.between?(1, @list.length)
-
-    nil
   end
 
   # SERIALIZATION

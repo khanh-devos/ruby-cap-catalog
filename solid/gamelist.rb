@@ -24,8 +24,8 @@ class GameList
   end
 
   def add_game
-    item_type, published_date, multiplayer, last_played_at = game_attr
-    game = Game.new(item_type, published_date, multiplayer, last_played_at)
+    _, title, published_date, multiplayer, last_played_at = game_attr
+    game = Game.new(title, published_date, multiplayer, last_played_at)
 
     puts 'Game created successfully'
     @list << game

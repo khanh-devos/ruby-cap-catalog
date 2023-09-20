@@ -1,4 +1,3 @@
-
 class Genre
   include SerializationItem
   attr_reader :id

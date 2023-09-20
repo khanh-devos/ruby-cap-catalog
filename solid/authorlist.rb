@@ -41,19 +41,21 @@ class AuthorList
     puts 'Item author added successfully'
   end
 
-  private
-
   def show_with_index
     @list.each_with_index do |author, index|
       puts "AUTHOR: #{index + 1} - First Name: #{author.first_name}, " \
-           "Last Name: #{author.last_name}, Books/Games: #{author.items.length}"
+           "Last Name: #{author.last_name}"
     end
   end
 
   def show
-    @list.each do |author|
-      puts "AUTHOR: First Name: #{author.first_name},
-      Last Name: #{author.last_name}, Books/Games: #{author.items.length}"
+    if @list.empty?
+      puts 'No authors available.'
+    else
+      @list.each do |author|
+        author.items.map(&:id).join(', ')
+        puts "AUTHOR: First Name: #{author.first_name}, Last Name: #{author.last_name}"
+      end
     end
   end
 

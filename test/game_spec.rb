@@ -1,6 +1,5 @@
 require_relative '../classes/game'
 
-
 RSpec.describe Game do
   let(:item_type) { 'Video Game' }
   let(:published_date) { '2022-01-01' }

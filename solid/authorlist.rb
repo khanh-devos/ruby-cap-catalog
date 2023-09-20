@@ -42,7 +42,6 @@ class AuthorList
     author || Author.new('', '')
   end
 
-
   private
 
   def select_author

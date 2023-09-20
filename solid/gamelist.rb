@@ -4,7 +4,6 @@ require_relative '../classes/author'
 require_relative '../serializers/serializearray'
 require_relative 'validation'
 
-
 class GameList
   include SerializationArray
   attr_accessor :list

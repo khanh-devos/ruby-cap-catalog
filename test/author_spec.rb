@@ -1,31 +1,31 @@
 require_relative '../classes/author'
+require_relative '../serializers/serializeitem'
 
 RSpec.describe Author do
-  let(:first_name) { 'John' }
-  let(:last_name) { 'Doe' }
-  let(:item) { double('item', id: 1) }
+  include SerializationItem
 
-  subject(:author) { described_class.new(first_name, last_name) }
+  let(:author) { Author.new('John', 'Doe') }
 
   describe '#initialize' do
-    it 'sets the first name, last name, and items attributes' do
-      expect(author.first_name).to eq(first_name)
-      expect(author.last_name).to eq(last_name)
+    it 'creates a new instance of Author' do
+      expect(author).to be_an_instance_of(Author)
+      expect(author).to be_a(SerializationItem)
+      expect(author.id).to be_an(Integer)
+      expect(author.first_name).to eq('John')
+      expect(author.last_name).to eq('Doe')
       expect(author.items).to be_empty
     end
   end
 
   describe '#add_item' do
-    context 'when the item is not already associated with the author' do
-      before do
-        allow(item).to receive(:author=)
-      end
+    it 'adds an item to the author' do
+      item = double('item')
+      allow(item).to receive(:id).and_return(1)
+      expect(item).to receive(:author=).with('John Doe')
 
-      it 'adds the item to the author\'s items and sets the author attribute of the item' do
-        author.add_item(item)
-        expect(author.items).to include(item.id)
-        expect(item).to have_received(:author=).with("#{first_name} #{last_name}")
-      end
+      author.add_item(item)
+
+      expect(author.items).to include(1)
     end
   end
 end

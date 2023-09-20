@@ -4,7 +4,6 @@ class MusicAlbum < Item
   attr_accessor :cover_state, :publisher, :title
 
   def initialize(title, artist, release_date, on_spotify)
-
     @title = title
     @artist = artist
     @release_date = release_date

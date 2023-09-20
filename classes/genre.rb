@@ -1,3 +1,5 @@
+require_relative '../serializers/serializeitem'
+
 class Genre
   include SerializationItem
   attr_reader :id

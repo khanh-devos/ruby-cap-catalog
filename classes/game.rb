@@ -1,13 +1,18 @@
-require_relative 'item'
-
 class Game < Item
-  attr_accessor :multiplayer, :last_played_at
+  attr_accessor :multiplayer, :last_played_at, :title
+  attr_reader :author
 
-  def initialize(item_type, published_date, multiplayer, last_played_at = nil)
-    super(item_type, published_date)
+  def initialize(title, published_date, multiplayer, last_played_at = nil)
+    super('GAME', published_date)
 
+    @title = title
     @multiplayer = multiplayer
     @last_played_at = last_played_at unless last_played_at.nil?
+    @author = nil
+  end
+
+  def add_author(author)
+    @author = author
   end
 
   private

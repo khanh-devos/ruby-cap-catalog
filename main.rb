@@ -38,65 +38,74 @@ def start
   gets.chomp.to_i
 end
 
-def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
-  booklist = BookList.new
-  labellist = LabelList.new
+class Main
+  def initialize
+    @booklist = BookList.new
+    @labellist = LabelList.new
+    @albumlist = AlbumList.new
+    @genrelist = GenreList.new
+    @gamelist = GameList.new
+    @authorlist = AuthorList.new
+  end
 
-  albumlist = AlbumList.new
-  genrelist = GenreList.new
+  def read_data
+    @booklist.read_data
+    @labellist.read_data
+    @albumlist.read_data
+    @genrelist.read_data
+    @gamelist.read_data
+    @authorlist.read_data
+  end
 
-  gamelist = GameList.new
-  authorlist = AuthorList.new
+  def write_data
+    @booklist.write_data
+    @labellist.write_data
+    @albumlist.write_data
+    @genrelist.write_data
+    @gamelist.write_data
+    @authorlist.write_data
+  end
 
-  booklist.read_data
-  labellist.read_data
-  albumlist.read_data
-  genrelist.read_data
-  gamelist.read_data
-  authorlist.read_data
+  def run # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
+    read_data
 
-  100.times do # rubocop:disable Metrics/BlockLength
-    opt = start
+    100.times do
+      opt = start
 
-    case opt
-    when 1
-      labellist.show
-    when 2
-      booklist.show
-    when 3
-      authorlist.show
-    when 4
-      gamelist.show
-    when 5
-      genrelist.show
-    when 6
-      albumlist.show
-    when 7
-      new_book = booklist.add_book
-      labellist.select_create_label_for(new_book)
+      case opt
+      when 1
+        @labellist.show
+      when 2
+        @booklist.show
+      when 3
+        @authorlist.show
+      when 4
+        @gamelist.show
+      when 5
+        @genrelist.show
+      when 6
+        @albumlist.show
+      when 7
+        new_book = @booklist.add_book
+        @labellist.select_create_label_for(new_book)
 
-    # genrelist.select_create_genre_for(new_book)
-    # authorlist.select_create_author_for(new_book)
-    when 8
-      new_game = gamelist.add_game
-      authorlist.select_create_author_for(new_game)
-    when 9
-      new_album = albumlist.add_album
-      genrelist.select_create_genre_for(new_album)
-    else
-      booklist.write_data
-      labellist.write_data
+      # @genrelist.select_create_genre_for(new_book)
+      # @authorlist.select_create_author_for(new_book)
+      when 8
+        new_game = @gamelist.add_game
+        @authorlist.select_create_author_for(new_game)
+      when 9
+        new_album = @albumlist.add_album
+        @genrelist.select_create_genre_for(new_album)
+      else
 
-      albumlist.write_data
-      genrelist.write_data
-
-      gamelist.write_data
-      authorlist.write_data
-
-      puts 'Thank you for using'
-      break
+        write_data
+        puts 'Thank you for using'
+        break
+      end
     end
   end
 end
 
-main
+main = Main.new
+main.run

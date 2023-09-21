@@ -29,7 +29,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Decode Morse Code <a name="about-project"></a>
+# 📖 Catalog <a name="about-project"></a>
 
 **Catalog** is a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games. Everything will be based on the [UML class diagram](./uml_catalog.png). The data will be stored in JSON files but you will also prepare a database with tables structure analogical to your program's class structure.
 
@@ -106,11 +106,14 @@ it will install the required gemfile for running the project
 
 👤 **Omar**
 
-- GitHub: [Omar](https://github.com/aqurds)
+- GitHub: [@Aqurds](https://github.com/Aqurds)
+- Twitter: [@Aqurds](https://twitter.com/Aqurds)
+- LinkedIn: [omaraqurds](https://linkedin.com/in/omaraqurds)
 
-👤 **Omar**
 
-- GitHub: [Omar](https://github.com/kit0-0)
+👤 Kiko
+
+- GitHub: [@kit0-0](https://github.com/kit0-0)
 
 
 

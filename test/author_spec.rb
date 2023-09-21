@@ -24,7 +24,6 @@ RSpec.describe Author do
       expect(item).to receive(:author=).with('John Doe')
 
       author.add_item(item)
-
       expect(author.items).to include(1)
     end
   end

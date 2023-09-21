@@ -15,7 +15,7 @@ class AlbumList
   end
 
   def album_attr
-    title = @input.input_string('Title:')
+    title = @input.input_string('Album title:')
     published_date = @input.input_date('Published date (yyyy-mm-dd):')
     [title, published_date]
   end
@@ -31,7 +31,7 @@ class AlbumList
   end
 
   def show
-    @list.each { |b| puts "#{b.type}: title: \"#{b.title}\", Genre: \"#{b.genre}\", Label: \"#{b.label}\"" }
+    @list.each { |b| puts "#{b.type}: title: \"#{b.title}\", Genre: \"#{b.genre}\"" }
   end
 
   # SERIALIZATION

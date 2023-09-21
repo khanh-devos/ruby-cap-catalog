@@ -101,6 +101,14 @@ it will install the required gemfile for running the project
 - Twitter: [@khanhror](https://twitter.com/home?lang=en)
 - LinkedIn: [Khanh RoR](https://www.linkedin.com/in/khanh-dom/)
 
+👤 **Omar**
+
+- GitHub: [Omar](https://github.com/aqurds)
+
+👤 **Omar**
+
+- GitHub: [Omar](https://github.com/kit0-0)
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -136,7 +144,7 @@ If you like this project you can share this project to your friend
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank microverse for this project
+I would like to thank Microverse and all the contributors for this project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -8,6 +8,7 @@ CREATE TABLE author (
 CREATE TABLE game (
     id SERIAL PRIMARY KEY,
     item_type VARCHAR(250),
+    title VARCHAR(250)
     multiplayer BOOLEAN,
     last_played_at DATE,
 

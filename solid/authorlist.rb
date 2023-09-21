@@ -53,7 +53,6 @@ class AuthorList
       puts 'No authors available.'
     else
       @list.each do |author|
-        author.items.map(&:id).join(', ')
         puts "AUTHOR: First Name: #{author.first_name}, Last Name: #{author.last_name}"
       end
     end

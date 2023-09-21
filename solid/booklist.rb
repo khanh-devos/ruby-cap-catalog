@@ -15,7 +15,7 @@ class BookList
   end
 
   def book_attr
-    title = @input.input_string('Title:')
+    title = @input.input_string('Book title:')
     published_date = @input.input_date('Published date (yyyy-mm-dd):')
     [title, published_date]
   end

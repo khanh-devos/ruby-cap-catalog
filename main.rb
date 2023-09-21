@@ -45,18 +45,17 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
   albumlist = AlbumList.new
   genrelist = GenreList.new
 
+  gamelist = GameList.new
+  authorlist = AuthorList.new
+
   booklist.read_data
   labellist.read_data
   albumlist.read_data
   genrelist.read_data
-
-  gamelist = GameList.new
-  authorlist = AuthorList.new
-
   gamelist.read_data
   authorlist.read_data
 
-  100.times do
+  100.times do # rubocop:disable Metrics/BlockLength
     opt = start
 
     case opt
@@ -67,8 +66,7 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     when 3
       authorlist.show
     when 4
-
-      puts "choose #{opt}"
+      gamelist.show
     when 5
       genrelist.show
     when 6
@@ -94,7 +92,6 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
 
       gamelist.write_data
       authorlist.write_data
-
 
       puts 'Thank you for using'
       break

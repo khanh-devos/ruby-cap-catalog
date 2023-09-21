@@ -19,7 +19,7 @@ class Game < Item
     unless last_played_at.nil?
       age_in_seconds = Time.now - last_played_at
 
-      return age_in_seconds > (2 * 365 * 24 * 60 * 60)
+      super && age_in_seconds > (2 * 365 * 24 * 60 * 60)
     end
 
     false

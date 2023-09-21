@@ -37,7 +37,7 @@ class GenreList
     name = genre_attr
     genre = new_or_old_genre?(name)
 
-    new_item.add_label(genre)
+    new_item.add_genre(genre)
   end
 
   def select_create_genre_for(new_item)

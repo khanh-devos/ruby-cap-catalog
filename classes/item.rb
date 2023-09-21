@@ -3,8 +3,8 @@ require_relative '../serializers/serializeitem'
 
 class Item
   include SerializationItem
-  attr_reader :id, :type, :archived
-  attr_accessor :genre, :author, :label, :published_date
+  attr_reader :id, :type, :archived, :genre, :author, :label
+  attr_accessor :published_date
 
   def initialize(type, published_date, genre = nil, author = nil, label = nil)
     @id = rand 0..100
@@ -52,14 +52,17 @@ class Item
   end
 
   def add_label(label)
+    @label = label.title
     label.add_item(self)
   end
 
   def add_genre(genre)
+    @genre = genre.name
     genre.add_item(self)
   end
 
   def add_author(author)
+    @author = "#{author.first_name} #{author.last_name}"
     author.add_item(self)
   end
 end

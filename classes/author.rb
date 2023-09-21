@@ -16,6 +16,5 @@ class Author
     return if items.include?(item.id)
 
     items << item.id
-    item.author = "#{@first_name} #{@last_name}"
   end
 end

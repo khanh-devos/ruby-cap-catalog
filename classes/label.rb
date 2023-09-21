@@ -14,6 +14,5 @@ class Label
     return if @items.include?(item.id)
 
     @items << item.id
-    item.label = @title
   end
 end

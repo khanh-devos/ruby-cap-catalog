@@ -1,66 +1,57 @@
+CREATE DATABASE ruby_catalog;
 
-CREATE TABLE author (
-    id SERIAL PRIMARY KEY,
-    first_name VARCHAR(250),
-    last_name VARCHAR(250)
+CREATE TABLE items (
+	id SERIAL PRIMARY KEY,
+    item_type VARCHAR(250),
+    publish_date date,
+	archived BOOLEAN,
+    genre_id integer REFERENCES genres(id),
+	author_id integer REFERENCES authors(id),
+	label_id integer REFERENCES labels(id),
 );
 
-CREATE TABLE game (
+
+CREATE TABLE authors (
     id SERIAL PRIMARY KEY,
-    item_type VARCHAR(250),
+    first_name VARCHAR(250),
+    last_name VARCHAR(250),
+);
+
+CREATE TABLE games (
+    id SERIAL PRIMARY KEY,
     title VARCHAR(250)
     multiplayer BOOLEAN,
     last_played_at DATE,
-
-    published_date DATE,
-    archived BOOLEAN
-
-    genre_id INT REFERENCES genre(id),
-    author_id INT REFERENCES author(id),
-    label_id INT REFERENCES label(id),
-    
+    item_id INT REFERENCES items(id) ON DELETE CASCADE
 );
 
 -- =====================
-CREATE TABLE label (
+CREATE TABLE labels (
     id SERIAL,
     title VARCHAR(250),
     color VARCHAR(50),
     PRIMARY KEY (id, title)
 )
 
-CREATE TABLE book (
+CREATE TABLE books (
     id SERIAL PRIMARY KEY,
-    item_type VARCHAR(250),
     title VARCHAR(250),
     cover_state BOOLEAN,
-
-    published_date DATE,
-    archived BOOLEAN,
-    
-    genre_id INT REFERENCES genre(id),
-    author_id INT REFERENCES author(id),
-    label_id INT REFERENCES label(id)
+    publisher VARCHAR(250),
+    item_id INT REFERENCES items(id) ON DELETE CASCADE
 )
 
 
 -- ===========================
-CREATE TABLE genre (
+CREATE TABLE genres (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100)
 )
 
-CREATE TABLE music_album (
+CREATE TABLE music_albums (
     id SERIAL PRIMARY KEY,
-    item_type VARCHAR(250),
     title VARCHAR(250),
     on_spotify BOOLEAN,
-    
-    published_date DATE,
-    archived BOOLEAN,
-
-    genre_id INT REFERENCES genre(id),
-    author_id INT REFERENCES author(id),
-    label_id INT REFERENCES label(id)
+    item_id INT REFERENCES items(id) ON DELETE CASCADE
 )
 

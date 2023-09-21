@@ -15,6 +15,5 @@ class Genre
     return if @items.include?(item.id)
 
     @items << item.id
-    item.genre = @name
   end
 end

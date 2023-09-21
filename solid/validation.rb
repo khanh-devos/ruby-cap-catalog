@@ -41,10 +41,13 @@ class InputValidation
       str = gets.chomp.strip
       arr = str.split('-', 3).map(&:to_i)
 
-      if arr.length == 3 && arr.all?(&:positive?) && arr[1] < 13 && arr[2] < 32
-        data = Date.new(arr[0], arr[1], arr[2])
-        break
-      end
+      year = Time.now.year
+      month = Time.now.month
+
+      next unless arr.length == 3 && arr[0].between?(1, year) && arr[1].between?(1, month) && arr[2].between?(1, 31)
+
+      data = Date.new(arr[0], arr[1], arr[2])
+      break
     end
 
     data

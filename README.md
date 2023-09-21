@@ -10,21 +10,22 @@
 
 ## 📗 Table of Contents
 
-- [📖 Decode Morse Code ](#-decode-morse-code-)
-  - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-  - [💻 Getting Started ](#-getting-started-)
+- [📖 Decode Morse Code ](#decode-morse-code)
+  - [🛠 Built With ](#built-with)
+    - [Tech Stack ](#tech-stack)
+    - [Key Features ](#key-features)
+  - [Live Demo](#live-demo)
+  - [💻 Getting Started ](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+  - [👥 Authors ](#authors)
+  - [🔭 Future Features ](#future-features)
+  - [🤝 Contributing ](#contributing)
+  - [⭐️ Show your support ](#️show-your-support)
+  - [🙏 Acknowledgments ](#acknowledgments)
+  - [📝 License ](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -49,9 +50,11 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO
+
 ## 🚀 Live Demo <a name="live-demo"></a>
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+[Video presentation](https://drive.google.com/file/d/1Km66n3_KDSNNz56if8WGyZWY2Fyqgipx/view?usp=drive_link)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
